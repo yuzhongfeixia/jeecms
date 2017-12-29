@@ -47,7 +47,7 @@
 	</bean>
 	<bean id="authorizingRealm" class="com.jeecms.core.security.CmsAuthorizingRealm">
 		<property name="credentialsMatcher">
-           <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+           <bean class="com.jeecms.core.security.CmsCredentialsMatcher">
                <property name="hashAlgorithmName" value="MD5"/>
              <!--   true means hex encoded, false means base64 encoded -->
                <property name="storedCredentialsHexEncoded" value="true"/>

@@ -98,6 +98,14 @@ public class CmsAuthenticationFilter extends FormAuthenticationFilter {
 			return onLoginFailure(token,failureUrl,adminLogin, e, request, response);
 		}
 	}
+	
+	/**
+	 * 这里根据用户输入项生成Token(有需要可以重写)
+	 */
+	@Override
+	protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
+		return super.createToken(request, response);
+	}
 
 	public boolean onPreHandle(ServletRequest request,
 			ServletResponse response, Object mappedValue) throws Exception {
