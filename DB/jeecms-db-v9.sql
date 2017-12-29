@@ -6102,7 +6102,7 @@ INSERT INTO `jo_user` (`user_id`,`username`,`email`,`password`,`register_time`,`
 create trigger triggerContentInsert after insert on jc_content for each row   begin  update jc_site_attr set attr_value=attr_value+1 where attr_name="contentTotal" and site_id=new.site_id;end;
 create trigger triggerContentDelete after delete on jc_content for each row   begin update jc_site_attr set attr_value=attr_value-1 where attr_name="contentTotal" and site_id=old.site_id;end;
 create trigger triggerCommentInsert after insert on jc_comment for each row   begin update jc_site_attr set attr_value=attr_value+1 where attr_name="commentTotal" and site_id=new.site_id;end;
-create trigger triggerCommentDeleteafter delete on jc_comment for each row   beginupdate jc_site_attr set attr_value=attr_value-1 where attr_name="commentTotal" and site_id=old.site_id;end;
+create trigger triggerCommentDelete after delete on jc_comment for each row   begin update jc_site_attr set attr_value=attr_value-1 where attr_name="commentTotal" and site_id=old.site_id;end;
 create trigger triggerGuestbookInsert after insert on jc_guestbook for each row   begin update jc_site_attr set attr_value=attr_value+1 where attr_name="guestbookTotal" and site_id=new.site_id;end;
 create trigger triggerGuestbookDelete after delete on jc_guestbook for each row   begin update jc_site_attr set attr_value=attr_value-1 where attr_name="guestbookTotal" and site_id=old.site_id;end;
 create trigger triggerMemberInsert after insert on jc_user for each row   begin update jc_site_attr set attr_value=attr_value+1 where attr_name="memberTotal" and site_id=1 and new.is_admin=0;end;
